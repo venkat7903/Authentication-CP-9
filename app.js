@@ -108,4 +108,13 @@ app.put("/change-password/", async (request, response) => {
   }
 });
 
+//API4
+app.get("/users/", async (request, response) => {
+  const getUsers = `
+    SELECT * FROM user;
+    `;
+  const usersArray = await db.all(getUsers);
+  response.send(usersArray);
+});
+
 module.exports = app;
